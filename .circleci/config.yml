@@ -10,10 +10,10 @@ jobs:
           docker_layer_caching: false
       - run:
           command: |
-            mkdir target
-            cp InsecureBankv2.apk target/ 
             git clone https://github.com/cyberkru/mobsf-dojo.git 
             cd mobsf-dojo
+            mkdir target
+            cp ../InsecureBankv2.apk target/
             ls -la
 workflows:
   build_test_deploy:
