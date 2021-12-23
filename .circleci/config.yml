@@ -12,9 +12,8 @@ jobs:
           command: |
             git clone https://github.com/cyberkru/mobsf-dojo.git 
             cd mobsf-dojo
-            docker create -v /target --name appin alpine:3.4 /bin/true
-            docker create -v /output --name appout alpine:3.4 /bin/true
-            cp ~/repo/InsecureBankv2.apk appin:/target
+            docker create -v /target --name app alpine:3.4 /bin/true
+            cp ~/repo/InsecureBankv2.apk app:/target
             TARGET_PATH='target/InsecureBankv2.apk' DOJOKEY=${DOJOKEY} DOJOIP=${DOJOIP}  PRODNAME='InsecureBankv2' docker-compose up --build --exit-code-from scan
 workflows:
   build_test_deploy:
