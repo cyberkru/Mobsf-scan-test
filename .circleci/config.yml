@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  mobsf_scan:
+    docker:
+      - image: circleci/python:3.7.4
+    working_directory: ~/repo    
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: false
+      - run:
+          command: |
+            mkdir target
+            cp InsecureBankv2.apk target/ 
+            git clone https://github.com/cyberkru/mobsf-dojo.git 
+            cd mobsf-dojo
+            ls -la
+workflows:
+  build_test_deploy:
+    jobs:
+      - mobsf_scan:
+          context:
+          - Scan_Env
