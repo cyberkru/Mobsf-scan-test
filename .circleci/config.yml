@@ -13,8 +13,8 @@ jobs:
             git clone https://github.com/cyberkru/mobsf-dojo.git 
             cd mobsf-dojo
             mkdir target
-            cp ../InsecureBankv2.apk target/
-            ls -la
+            cp ~/repo/InsecureBankv2.apk target/
+            ls -la target/
 workflows:
   build_test_deploy:
     jobs:
