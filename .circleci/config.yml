@@ -12,8 +12,10 @@ jobs:
           command: |
             git clone https://github.com/cyberkru/mobsf-dojo.git
             cd mobsf-dojo
-            cp ~/repo/InsecureBankv2.apk ./scan/
-            TARGET_PATH='./InsecureBankv2.apk' DOJOKEY=${DOJOKEY} DOJOIP=${DOJOIP}  PRODNAME='InsecureBankv2' docker-compose up --build --exit-code-from scan
+            cp ~/repo/InsecureBankv2.apk scan/
+            TARGET_FILE='InsecureBankv2.apk' DOJOKEY=${DOJOKEY} DOJOIP=${DOJOIP}  PRODNAME='InsecureBankv2' docker-compose up --build --exit-code-from scan
+            ls -la 
+            ls -la scan/
 workflows:
   build_test_deploy:
     jobs:
